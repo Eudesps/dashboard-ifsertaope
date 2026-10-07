@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propriedades Intelectuais - IFSertãoPE</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f3f6f4;
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        min-height: 72px;
+        background: rgb(9 53 38 / 88%);
+        -webkit-backdrop-filter: blur(16px) saturate(140%);
+        backdrop-filter: blur(16px) saturate(140%);
+        display: flex;
+        align-items: center;
+        padding: 14px clamp(20px, 5vw, 64px);
+        color: #fff;
+        border-bottom: 1px solid rgb(255 255 255 / 18%);
+        box-shadow: 0 6px 24px rgb(10 35 26 / 18%);
+    }
+
+    .brand { display: flex; align-items: center; min-width: 0; }
+    .brand-copy h1 {
+        padding-left: 16px;
+        border-left: 3px solid #d6aa45;
+        font-size: clamp(17px, 2vw, 21px); font-weight: 650;
+        line-height: 1.2; letter-spacing: -.02em;
+    }
+
+    @media (max-width: 560px) {
+        header { min-height: 64px; padding-inline: 18px; }
+        .brand-copy h1 { padding-left: 12px; }
+    }
+
+    .dashboard {
+        width: 100%;
+        height: calc(100vh - 72px);
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <div class="brand">
+        <div class="brand-copy">
+            <h1>Propriedades Intelectuais</h1>
+        </div>
+    </div>
+</header>
+
+<main class="dashboard">
+    <iframe
+        src="https://datastudio.google.com/embed/reporting/e5b70244-817f-4a18-a795-e5b8efe70f67/page/LpK8F"
+        allowfullscreen>
+    </iframe>
+</main>
+
+</body>
+</html>
