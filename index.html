@@ -49,14 +49,57 @@
     }
 
     .dashboard {
+        position: relative;
         width: 100%;
         height: calc(100vh - 72px);
+        background: #f3f6f4;
     }
 
+    .loading-indicator {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: grid;
+        place-content: center;
+        justify-items: center;
+        gap: 14px;
+        color: #315b49;
+        background: #f3f6f4;
+        font-size: 14px;
+        font-weight: 600;
+        transition: opacity 220ms ease, visibility 220ms ease;
+    }
+
+    .loading-indicator.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .loading-spinner {
+        width: 34px;
+        height: 34px;
+        border: 3px solid #c9ded2;
+        border-top-color: #08744a;
+        border-radius: 50%;
+        animation: spin 800ms linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
     iframe {
+        position: relative;
+        z-index: 2;
+        display: block;
         width: 100%;
         height: 100%;
         border: none;
+        background: transparent;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .loading-spinner { animation-duration: 2s; }
+        .loading-indicator { transition: none; }
     }
 </style>
 
@@ -73,9 +116,15 @@
 </header>
 
 <main class="dashboard">
+    <div class="loading-indicator" id="loading-indicator" role="status" aria-live="polite">
+        <span class="loading-spinner" aria-hidden="true"></span>
+        <span>Carregando painel...</span>
+    </div>
     <iframe
         src="https://datastudio.google.com/embed/reporting/e5b70244-817f-4a18-a795-e5b8efe70f67/page/LpK8F"
-        allowfullscreen>
+        title="Painel de Propriedades Intelectuais"
+        allowfullscreen
+        onload="document.getElementById('loading-indicator').classList.add('is-hidden')">
     </iframe>
 </main>
 
